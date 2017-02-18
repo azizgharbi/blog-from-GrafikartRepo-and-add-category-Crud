@@ -36,7 +36,7 @@
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.posts.index') }}">backend</a>
+            <a class="nav-link" href="{{ route('admin.posts.index') }}">@if(Auth::check()) backend @endif</a>
         </li>
     </ul>
 </nav>
