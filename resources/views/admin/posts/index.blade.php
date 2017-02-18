@@ -7,8 +7,8 @@
         <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Add a new post</a>
     </p>
 
-    <table class="table table-striped">
-        <thead>
+    <table class="table">
+        <thead class="thead-inverse">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -58,13 +58,13 @@
        },
        function(isConfirm){
            if(isConfirm){
-               swal("Deleted!","this cpost has been deleted", "success");
+               swal("Deleted!","this post has been deleted", "success");
                setTimeout(function() {
                    self.parents(".delete_form").submit();
                }, 2000); //2 second delay (2000 milliseconds = 2 seconds)
            }
            else{
-                 swal("cancelled","this certification is safe", "error");
+                 swal("cancelled","this post is safe", "error");
            }
        });
    });

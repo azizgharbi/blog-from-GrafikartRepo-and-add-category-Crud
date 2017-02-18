@@ -8,7 +8,7 @@
     </p>
 
     <table class="table table-striped">
-        <thead>
+        <thead class="thead-inverse">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -45,7 +45,7 @@
        var self = $(this);
        swal({
            title             : "Are you sure?",
-           text              : "You will not be able to recover this post !",
+           text              : "You will not be able to recover this category !",
            type              : "warning",
            showCancelButton  : true,
            confirmButtonColor: "#DD6B55",
@@ -56,7 +56,7 @@
        },
        function(isConfirm){
            if(isConfirm){
-               swal("Deleted!","this cpost has been deleted", "success");
+               swal("Deleted!","this category has been deleted", "success");
                setTimeout(function() {
                    self.parents(".delete_form").submit();
                }, 2000); //2 second delay (2000 milliseconds = 2 seconds)
