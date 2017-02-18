@@ -15,3 +15,6 @@ I wrote a test for the counter cache that can be accessed using
 ```php
 ./vendor/bin/phpunit
 ```
+PS :
+From Grafikart repo :
+Link to the original ==> https://github.com/Grafikart/BlogMVC-Laravel
