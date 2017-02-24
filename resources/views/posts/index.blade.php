@@ -32,7 +32,7 @@
     @endforeach
 
     <div class="navigation">
-        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+        {{ $posts->links('vendor.pagination.default') }}
     </div>
 
 @endsection
