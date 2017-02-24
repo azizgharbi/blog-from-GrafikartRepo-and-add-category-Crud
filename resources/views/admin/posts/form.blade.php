@@ -43,7 +43,7 @@
     </div>
     <div class="form-group @if($errors->first('content')) has-danger @endif">
         {!! Form::label('content', 'Content') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
         @if($errors->first('content'))
             <small class="form-control-feedback">{{ $errors->first('content') }}</small>
         @endif

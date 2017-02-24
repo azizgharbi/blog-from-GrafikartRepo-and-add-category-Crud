@@ -1,62 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>@yield('title')</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    @yield('js')
-    <style>
-        .navbar{
-            margin-bottom: 2rem;
-        }
-    </style>
-</head>
-
-<body>
-
-<nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse bg-primary">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="{{ route('home') }}">Backend</a>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin.posts.index') }}">Posts</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin.categories.index') }}">Categories</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <form action="{{ route('logout') }}" method="post" style="display: inline;">
-                    {{ csrf_field() }}
-                    <button class="nav-link" style="background-color: transparent; border: none;">logout</button>
-                </form>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-    @if (session('success'))
-        <div class="alert alert-success">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>welcome</title>
+      <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+      <link rel="stylesheet" href="{{asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+      @yield('css')
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#">CMS</a>
+            </div>
+            <ul class="nav navbar-nav">
+               <li class="active"><a href="{{ route('home') }}">home</a></li>
+               <li ><a href="{{ route('admin.posts.index') }}">Posts</a></li>
+               <li ><a href="{{ route('admin.categories.index') }}">Categories</a></li>
+               <li>
+                  <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+                  <span class="glyphicon glyphicon-log-in"></span> Logout
+                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                     {{ csrf_field() }}
+                  </form>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container">
+         @if (session('success'))
+         <div class="alert alert-success">
             {{ session('success') }}
-        </div>
-    @endif
-
-    @yield('content')
-</div><!-- /.container -->
-
-</body>
+         </div>
+         @endif
+         @yield('content')
+      </div>
+      <!-- /.container -->
+      <script type="text/javascript" src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+      @yield('js')
+   </body>
 </html>

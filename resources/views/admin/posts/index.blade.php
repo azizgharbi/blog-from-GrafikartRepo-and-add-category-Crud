@@ -27,6 +27,7 @@
                     <td>
                         <a href="{{ route('admin.posts.edit', ['id' => $post->id]) }}" class="btn btn-primary">Edit</a>
                         {!! Form::model($post, ['method' => 'DELETE', 'route' => ['admin.posts.destroy', $post], 'style' => 'display:inline;','class'=>'delete_form']) !!}
+                           {{ csrf_field() }}
                             <button type="button" class="btn btn-danger">Delete</button>
                         {!! Form::close() !!}
                     </td>

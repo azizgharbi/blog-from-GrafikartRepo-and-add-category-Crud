@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Controllers\Controller;
 use App\User;
 
-class CategoryController extends \App\Http\Controllers\Controller {
+class CategoryController extends Controller {
 
     public function index () {
         $categories = Category::paginate(10);

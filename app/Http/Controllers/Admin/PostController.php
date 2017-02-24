@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Requests\PostRequest;
+use App\Http\Controllers\Controller;
 use App\Post;
 use App\User;
 
-class PostController extends \App\Http\Controllers\Controller {
+class PostController extends Controller {
 
     public function index () {
         $posts = Post::with('category')->paginate(10);

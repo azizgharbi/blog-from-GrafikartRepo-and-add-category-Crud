@@ -7,40 +7,27 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield('title', 'BlogMVC')</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <style>
-        .navbar{
-            margin-bottom: 2rem;
-        }
-
-        .text-right{
-            text-align: right;
-        }
-    </style>
+    <title>WELCOME</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    @yield('css')
 </head>
 
 <body>
 
-<nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse bg-primary">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="{{ route('home') }}">Blogmvc</a>
-    <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('home') }}">Blog</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.posts.index') }}">@if(Auth::check()) backend @endif</a>
-        </li>
-    </ul>
+<nav class="navbar navbar-inverse">
+   <div class="container-fluid">
+      <div class="navbar-header">
+         <a class="navbar-brand" href="#">CMS</a>
+      </div>
+      <ul class="nav navbar-nav">
+         <li class="active"><a href="{{ route('home') }}">Blog</a></li>
+         <li >
+           <a class="nav-link pull-right" href="{{ route('admin.posts.index') }}">@if(Auth::check()) backend @endif</a>
+         </li>
+      </ul>
+   </div>
 </nav>
-
 <div class="container">
   <main role="main">
 
@@ -54,6 +41,8 @@
   </main>
 
 </div> <!-- /container -->
-
+<script type="text/javascript" src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+@yield('js')
 </body>
 </html>
