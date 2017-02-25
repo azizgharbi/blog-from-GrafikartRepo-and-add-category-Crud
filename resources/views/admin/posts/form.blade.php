@@ -11,7 +11,8 @@ selector: '.editor'
 
 {!! Form::model($post, [
     'route' => $post->id ? ['admin.posts.update', $post] : 'admin.posts.index',
-    'method' => $post->id ? 'PUT' : 'POST'
+    'method' => $post->id ? 'PUT' : 'POST',
+    'name'=>'myform'
 ]) !!}
 
     <div class="row">
@@ -20,7 +21,7 @@ selector: '.editor'
                 {!! Form::label('name', 'Name') !!}
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 @if($errors->first('name'))
-                <small class="form-control-feedback">{{ $errors->first('name') }}</small>
+                <small class="help-block">{{ $errors->first('name') }}</small>
                 @endif
             </div>
         </div>
@@ -29,7 +30,7 @@ selector: '.editor'
                 {!! Form::label('slug', 'Slug') !!}
                 {!! Form::text('slug', null, ['class' => 'form-control']) !!}
                 @if($errors->first('slug'))
-                    <small class="form-control-feedback">{{ $errors->first('slug') }}</small>
+                    <small class="help-block">{{ $errors->first('slug') }}</small>
                 @endif
             </div>
         </div>
@@ -38,7 +39,7 @@ selector: '.editor'
                 {!! Form::label('category_id', 'Category') !!}
                 {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'required' => 'required']) !!}
                 @if($errors->first('category_id'))
-                    <small class="form-control-feedback">{{ $errors->first('category_id') }}</small>
+                    <small class="help-block">{{ $errors->first('category_id') }}</small>
                 @endif
             </div>
         </div>
@@ -47,16 +48,16 @@ selector: '.editor'
                 {!! Form::label('user_id', 'User') !!}
                 {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'required' => 'required']) !!}
                 @if($errors->first('user_id'))
-                    <small class="form-control-feedback">{{ $errors->first('user_id') }}</small>
+                    <small class="help-block">{{ $errors->first('user_id') }}</small>
                 @endif
             </div>
         </div>
     </div>
     <div class="form-group @if($errors->first('content')) has-danger @endif">
         {!! Form::label('content', 'Content') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control editor', 'required' => 'required']) !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control editor']) !!}
         @if($errors->first('content'))
-            <small class="form-control-feedback">{{ $errors->first('content') }}</small>
+            <small class="help-block">{{ $errors->first('content') }}</small>
         @endif
     </div>
     {!! Form::submit($post->id ? 'Update' : 'Create', ['class' => 'btn btn-primary']) !!}

@@ -8,7 +8,7 @@
                 {!! Form::label('name', 'Name') !!}
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 @if($errors->first('name'))
-                <small class="form-control-feedback">{{ $errors->first('name') }}</small>
+                <small class="help-block">{{ $errors->first('name') }}</small>
                 @endif
             </div>
         </div>
@@ -17,7 +17,7 @@
                 {!! Form::label('slug', 'Slug') !!}
                 {!! Form::text('slug', null, ['class' => 'form-control']) !!}
                 @if($errors->first('slug'))
-                    <small class="form-control-feedback">{{ $errors->first('slug') }}</small>
+                    <small class="help-block">{{ $errors->first('slug') }}</small>
                 @endif
             </div>
         </div>
