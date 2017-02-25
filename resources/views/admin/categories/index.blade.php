@@ -34,6 +34,6 @@
     </table>
 
     <div class="navigation">
-        {{ $categories->links('vendor.default') }}
+        {{ $categories->links('vendor.pagination.default') }}
     </div>
 @endsection

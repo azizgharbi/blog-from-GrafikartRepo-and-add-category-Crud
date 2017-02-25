@@ -16,7 +16,7 @@ class PostTableSeeder extends Seeder
 
         $user_id = DB::table('users')->insertGetId([
             'name' => 'admin',
-            'email'=> 'admin@localhost.dev',
+            'email'=> 'admin@admin.com',
             'password' => \Illuminate\Support\Facades\Hash::make('admin')
         ]);
 
@@ -24,6 +24,8 @@ class PostTableSeeder extends Seeder
             $category_id = DB::table('categories')->insertGetId([
                 'name' => $faker->name,
                 'slug' => $faker->slug,
+                'created_at' => $faker->dateTime(),
+                'updated_at' => $faker->dateTime(),
                 'posts_count' => 5
             ]);
             for($j = 0; $j < 5; $j++) {
@@ -31,8 +33,8 @@ class PostTableSeeder extends Seeder
                     'name' => $faker->name,
                     'slug' => $faker->slug,
                     'content' => $faker->text,
-                    'created_at' => $faker->dateTime,
-                    'updated_at' => $faker->dateTime,
+                    'created_at' => $faker->dateTime(),
+                    'updated_at' => $faker->dateTime(),
                     'user_id'    => $user_id,
                     'category_id' => $category_id
                 ]);
