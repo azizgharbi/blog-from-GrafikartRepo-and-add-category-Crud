@@ -43,9 +43,21 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function attachements(){
+
+         return $this->morphMany(Attachement::class, 'attachement');
+
+       }
+
+
+
+
+
+
     public function getHtmlAttribute() {
         return Markdown::parse($this->content);
     }
+
 
     public function getExcerpt($max_words = 100, $ending = "...") {
         $text = strip_tags($this->html);

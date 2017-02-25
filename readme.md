@@ -17,6 +17,19 @@ cd public
 bower install
 php artisan serve # http://localhost:8000/
 ```
+to make sure that the polymorphe relationship works we need to verifiy that the function name
+it the same as the filed name
+
+Exemple :
+
+attachement() => attachement_id || attachement_type
+
+you can use the trinker to verify :
+php artisan trinker
+$p=App\Attachement::find(3);
+$p->attachements()->create(['name'=>'image.jpg']);
+$p->attachements()->get();
+
 
 test for the counter cache that can be accessed using
 

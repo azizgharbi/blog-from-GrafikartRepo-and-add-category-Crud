@@ -1,10 +1,6 @@
 @section('js')
 <script src="{{asset('bower_components/tinymce/tinymce.min.js')}}"></script>
-<script type="text/javascript">
-tinymce.init({
-selector: '.editor'
-});
-</script>
+<script src="{{asset('js/editor.js')}}"></script>
 @endsection
 
 
