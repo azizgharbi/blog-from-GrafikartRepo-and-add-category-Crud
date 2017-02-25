@@ -1,3 +1,14 @@
+@section('js')
+<script src="{{asset('bower_components/tinymce/tinymce.min.js')}}"></script>
+<script type="text/javascript">
+tinymce.init({
+selector: '.editor'
+});
+</script>
+@endsection
+
+
+
 {!! Form::model($post, [
     'route' => $post->id ? ['admin.posts.update', $post] : 'admin.posts.index',
     'method' => $post->id ? 'PUT' : 'POST'
@@ -43,7 +54,7 @@
     </div>
     <div class="form-group @if($errors->first('content')) has-danger @endif">
         {!! Form::label('content', 'Content') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control editor', 'required' => 'required']) !!}
         @if($errors->first('content'))
             <small class="form-control-feedback">{{ $errors->first('content') }}</small>
         @endif

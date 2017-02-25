@@ -25,7 +25,7 @@
                     <td>
                         <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-primary">Edit</a>
                         {!! Form::model($category, ['method' => 'DELETE', 'route' => ['admin.categories.destroy',$category], 'style' => 'display:inline;']) !!}
-                            <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                         {!! Form::close() !!}
                     </td>
                 </tr>
