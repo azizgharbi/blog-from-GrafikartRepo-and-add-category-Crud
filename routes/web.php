@@ -21,3 +21,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
 });
+
+/* attachment upload */
+Route::post('attachement','AttachementController@store')->name('uploads');

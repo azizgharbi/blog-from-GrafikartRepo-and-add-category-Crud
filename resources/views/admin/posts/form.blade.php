@@ -1,4 +1,5 @@
 @section('js')
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{{asset('bower_components/tinymce/tinymce.min.js')}}"></script>
 <script src="{{asset('js/editor.js')}}"></script>
 @endsection
@@ -49,9 +50,10 @@
             </div>
         </div>
     </div>
+    {{$post->id}}
     <div class="form-group @if($errors->first('content')) has-danger @endif">
         {!! Form::label('content', 'Content') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control editor']) !!}
+        <textarea name="content" class="form-control editor" data-id="{{ $post->id }}" data-type="{{get_class($post)}}" data-url="{{route('uploads')}}" >{!! $post->content !!}</textarea>
         @if($errors->first('content'))
             <small class="help-block">{{ $errors->first('content') }}</small>
         @endif
