@@ -51,10 +51,9 @@
             </div>
         </div>
     </div>
-    {{$post->id}}
     <div class="form-group @if($errors->first('content')) has-danger @endif">
         {!! Form::label('content', 'Content') !!}
-        <textarea name="content" class="form-control editor" data-id="{{ $post->id }}" data-type="{{get_class($post)}}" data-url="{{route('uploads')}}" >{!! $post->content !!}</textarea>
+        <textarea name="content" class="form-control" id="editor" data-id="{{ $post->id }}" data-type="{{get_class($post)}}" data-url="{{route('uploads')}}" >{!! $post->content !!}</textarea>
         @if($errors->first('content'))
             <small class="help-block">{{ $errors->first('content') }}</small>
         @endif
