@@ -9,7 +9,8 @@
 {!! Form::model($post, [
     'route' => $post->id ? ['admin.posts.update', $post] : 'admin.posts.index',
     'method' => $post->id ? 'PUT' : 'POST',
-    'name'=>'myform'
+    'name'=>'myform',
+    'file'=>true
 ]) !!}
 
     <div class="row">

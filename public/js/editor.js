@@ -6,19 +6,25 @@ if (window.tinymce) {
   plugins:'image,paste',
   paste_data_images:true,
   automatic_uploads:true,
+
   images_upload_handler: function(blobinfo,success,failure){
 
         var data = new FormData();
-        data.append('attachement_id',attachement.dataset.id);
-        data.append('attachement_type',attachement.dataset.type);
-        data.append('name',blobinfo.blob(), blobinfo.filename());
+        var mydata = {};
 
-        axios.post(attachement.dataset.url, data)
+        data.append("attachement_id",attachement.dataset.id);
+        data.append('attachement_type',attachement.dataset.type);
+        data.append('name',blobinfo.blob(),blobinfo.filename());
+
+            for (var key of data.entries()) {
+                mydata[key[0]]=key[1]
+            }
+
+        axios.post(attachement.dataset.url,mydata)
         .then(function(res){
-          console.log(res.data);
+          // work in progress
         })
         .catch(function(err){
-            console.log(err);
           })
       }
   });

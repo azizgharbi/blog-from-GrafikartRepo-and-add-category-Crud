@@ -13,7 +13,7 @@ Route::group(['namespace' => 'Auth'], function () {
 Route::get('/', 'PostController@index')->name('home');
 Route::get('/{slug}', 'PostController@show')->name('posts.show')->where('slug', $slugPattern);
 Route::get('/category/{slug}', 'PostController@category')->name('posts.category')->where('slug', $slugPattern);
-Route::get('/user/{id}', 'PostController@user')->name('posts.user')->where('id', '[0-9]+');
+Route::get('/user/{id}', 'PostController@user')->name('post.user')->where('id', '[0-9]+');
 
 Route::resource('comments', 'CommentController', ['only' => ['store']]);
 
