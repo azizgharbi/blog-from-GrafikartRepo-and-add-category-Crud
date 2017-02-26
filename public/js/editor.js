@@ -15,15 +15,10 @@ if (window.tinymce) {
         data.append('attachement_type',attachement.dataset.type);
         data.append('name',blobinfo.blob(), blobinfo.filename());
 
-            /*for (var key of data.entries()) {
-                mydata[key[0]]=key[1]
-            }*/
-
         axios.post(attachement.dataset.url,data)
         .then(function(res){
-          console.log(res);
-
-        })
+              success(res.data.url);
+                    })
         .catch(function(err){
           })
       }
