@@ -23,7 +23,7 @@ class AttachementController extends Controller {
 
           }
           return response()->json([
-             'url' => 'http://localhost/BlogMVC-Laravel/public/uploads/attachements/'.$fileName
+             'url' => url('/uploads/attachements').'/'.$fileName
              ]);
   }
 }
