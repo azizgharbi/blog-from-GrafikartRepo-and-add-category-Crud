@@ -24,8 +24,8 @@ class AttachementRequest extends FormRequest
     public function rules()
     {
           $rules = [
-              'attachement_type' => 'required',
-              'attachement_id' => 'required|int',
+              /*'attachement_type' => 'required',
+              'attachement_id' => 'required|int',*/
         ];
         return $rules;
     }

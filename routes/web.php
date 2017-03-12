@@ -20,7 +20,6 @@ Route::resource('comments', 'CommentController', ['only' => ['store']]);
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
+    /* attachment upload */
+    Route::post('attachement','AttachementController@update')->name('uploads');
 });
-
-/* attachment upload */
-Route::post('attachement','AttachementController@store')->name('uploads');

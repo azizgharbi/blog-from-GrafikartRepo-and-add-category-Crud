@@ -1,4 +1,4 @@
-var attachement = document.querySelector('#editor');
+/*var attachement = document.querySelector('#editor');
 
 if (window.tinymce) {
   tinymce.init({
@@ -6,7 +6,6 @@ if (window.tinymce) {
   plugins:'image,paste',
   paste_data_images:true,
   automatic_uploads:true,
-
   images_upload_handler: function(blobinfo,success,failure){
 
         var data = new FormData();
@@ -22,5 +21,6 @@ if (window.tinymce) {
         .catch(function(err){
           })
       }
+
   });
 }
